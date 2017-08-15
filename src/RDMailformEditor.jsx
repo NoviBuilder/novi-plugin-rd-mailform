@@ -13,7 +13,7 @@ const EditorItem = {
     closeIcon: "submit",
     onSubmit: onSubmitAction,
     width: 320,
-    height: 279,
+    height: 130,
     title: "Mailform settings"
 };
 

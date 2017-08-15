@@ -7,7 +7,7 @@ const Plugin = {
     name: "novi-plugin-rd-mailform",
     title: "Novi RD Mailform",
     description: "Novi RD Mailform description",
-    version: "1.0.1",
+    version: "1.0.2",
     dependencies: {
     },
     defaults: {

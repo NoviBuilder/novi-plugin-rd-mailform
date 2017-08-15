@@ -55,10 +55,13 @@ export default class Body extends Component {
         `;
 
         this._handleSwitcherChange = this._handleSwitcherChange.bind(this);
+        this._renderSmtpSettings = this._renderSmtpSettings.bind(this);
+        this._changeBodyHeight = this._changeBodyHeight.bind(this);
+        this._changeBodyHeight(useSmtp);
     }
 
-    render() {
 
+    render() {
         return (
             <div className="rd-mailform-wrap">
                 <style>{this.style}</style>
@@ -72,7 +75,15 @@ export default class Body extends Component {
                     </p>
                     <Switcher isActive={this.state.useSmtp} onChange={this._handleSwitcherChange}/>
                 </div>
+                {this._renderSmtpSettings()}
+            </div>
+        )
+    }
 
+    _renderSmtpSettings(){
+        if (!this.state.useSmtp) return null;
+        return(
+            <div>
                 <div className="rd-mailform-group">
                     <div className="rd-mailfrom-group-item" style={{"width": "60%"}}>
                         <p className="novi-label" style={{"marginTop": 0}}>
@@ -104,7 +115,6 @@ export default class Body extends Component {
                         <Input disabled={this.state.useSmtp ? null : "disabled"} type="password" onChange={this._handleInputChange.bind(this, "password")} value={this.state.password}/>
                     </div>
                 </div>
-
             </div>
         )
     }
@@ -112,9 +122,19 @@ export default class Body extends Component {
     _handleSwitcherChange(isActive){
         this.setState({
             useSmtp: isActive
-        })
+        });
+        this._changeBodyHeight(isActive);
+
     }
 
+    _changeBodyHeight(isActive){
+        if (isActive){
+            novi.editor.setBodyHeight(280)
+        }
+        else{
+            novi.editor.setBodyHeight(130)
+        }
+    }
     _handleInputChange(propertyName, e) {
         let value = e.target.value;
         let newState = {};

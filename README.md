@@ -1,8 +1,8 @@
 # novi-plugin-rd-mailform
 Novi Builder Plugin for visual [RD Mailform](https://github.com/TemplatemonsterPlugins/rd-mailform) customization
 
-## How to Intall
-You should follow several simple steps to intall this plugin:
+## How to Install
+You should follow several simple steps to install this plugin:
 * Copy the novi-plugin-rd-mailform.js file to your path/to/novibuilder/plugins folder.
 * Launch NoviBuilder
  
@@ -11,8 +11,8 @@ You should follow several simple steps to intall this plugin:
 * Change SFTP settings to transfer form data
 
 ## Developer Settings
-* querySelector — containes a css selector which defines the Plugin container.
-* configLocation — containes the path to form configuration file.
+* querySelector — contains a css selector which defines the Plugin container.
+* configLocation — contains the path to form configuration file.
 
 ## How to add RD Mailform on your page
 If your website doesn't contain RD Mailform follow the instructions below to install it.

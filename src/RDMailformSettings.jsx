@@ -3,7 +3,7 @@ const React = novi.react.React;
 const Component = novi.react.Component;
 const Input = novi.ui.input;
 const Button = novi.ui.button;
-
+const Language = novi.language;
 export default class ImageSettings extends Component {
     constructor(props) {
         super();
@@ -15,6 +15,7 @@ export default class ImageSettings extends Component {
         this.initConfigLocation = props.settings.configLocation;
         this.saveSettings = this.saveSettings.bind(this);
         this.onInputChange = this.onInputChange.bind(this);
+        this.messages = Language.getDataByKey("novi-plugin-rd-mailform");
     }
 
     componentWillReceiveProps(props){
@@ -28,12 +29,12 @@ export default class ImageSettings extends Component {
         return (
             <div>
                 <span style={{letterSpacing: "0,0462em"}}>RD Mailform Plugin</span>
-                <div style={{fontSize: 13, color: "#6E778A", marginTop: 21}}>Apply this plugin to elements which are matching selector:</div>
+                <div style={{fontSize: 13, color: "#6E778A", marginTop: 21}}>{this.messages.settings.pluginElement}</div>
                     <Input style={{marginTop: 10, width: 340}} value={this.state.querySelector} onChange={this.onInputChange.bind(this, "querySelector")}/>
-                <div style={{fontSize: 13, color: "#6E778A", marginTop: 21}}>Path to RD Mailform configuration file:</div>
+                <div style={{fontSize: 13, color: "#6E778A", marginTop: 21}}>{this.messages.settings.configPath}</div>
                 <Input style={{marginTop: 10, width: 340}} value={this.state.configLocation} onChange={this.onInputChange.bind(this, "configLocation")}/>
                 <div style={{marginTop: 30}}>
-                <Button type="primary"  messages={{textContent: "Save Settings"}} onClick={this.saveSettings} />
+                <Button type="primary"  messages={{textContent: this.messages.settings.submitButton}} onClick={this.saveSettings} />
                 </div>
             </div>
         );

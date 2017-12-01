@@ -3,18 +3,18 @@ const Icons = novi.ui.icons;
 import Trigger from "./editor/Trigger";
 import Body from "./editor/Body";
 import Config from "./Config";
-
+const messages = novi.language.getDataByKey("novi-plugin-rd-mailform");
 
 const EditorItem = {
     trigger: <Trigger/>,
-    tooltip: "Change Mailform settings",
-    header: [Icons.ICON_MAILFORM, <span>RD Mailform Settings</span>],
+    tooltip: messages.editor.tooltip,
+    header: [Icons.ICON_MAILFORM, <span>{messages.editor.header}</span>],
     body: [<Body/>],
     closeIcon: "submit",
     onSubmit: onSubmitAction,
-    width: 320,
+    width: 360,
     height: 130,
-    title: "Mailform settings"
+    title: messages.editor.title
 };
 
 
